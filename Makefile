@@ -14,7 +14,7 @@
 
 ########################## VARIABLES DEFINITIONS ###############################
 HEADER = push_swap.h
-SRC = client.c server.c 
+SRC = client.c server.c utils.c
 DIR_LIBFT = ./libft/
 LIBFT = $(DIR_LIBFT)/libft.a
 DIR_PRINTF = ./ft_printf/
@@ -57,13 +57,13 @@ CLEAN_PRINTF:
 # file into an .o file. $< is the first dependency (the .c file in this case) and $@ 
 # is the target (the .o file).
 # %.o : %.c $(HEADER)
-	# $(CC) $(CFLAGS) -c $< -o $@
+#	$(CC) $(CFLAGS) -c $< -o $@
 
 compile:
 # 	gcc client.c -g -o client
 	@echo 'compiling ...' 
-	@gcc $(LIBFT) $(PRINTF) -g server.c -o server 
-	@gcc $(LIBFT) $(PRINTF) -g client.c -o client
+	@gcc $(LIBFT) $(PRINTF) -g utils.c server.c -o server 
+	@gcc $(LIBFT) $(PRINTF) -g utils.c client.c -o client
 
 run: compile
 	@echo running ...

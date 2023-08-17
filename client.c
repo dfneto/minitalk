@@ -12,19 +12,16 @@
 
 #include "minitalk.h"
 
-char    *create_the_message_to_send(char *str)
-{
-    
-    return "";
-}
-
 int get_pid(char *pid)
 {
-   
+    int i;
 
-    while(pid)
+    i = 0;
+    while(pid[i])
     {
-
+        if (!ft_isdigit(pid[i]))
+            return (0);
+        i++;
     }
     return ft_atoi(pid);
 }
@@ -32,14 +29,17 @@ int get_pid(char *pid)
 int main(int argc, char *argv[])
 {
     int     pid;
-    char    *str;
+    char    *msg;
 
-    ft_printf("WAKA\n");
-    if (argc > 2)
+    if (argc == 3)
     {
         pid = get_pid(argv[1]);
         if (!pid)
+        {
+            print_error("INVALID PID");
             return (1);
+        }
+        ft_printf("My pid is %d\n", pid);
     }
     return (0);
 }
