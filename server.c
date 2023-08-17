@@ -10,4 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minitalk.h"
+int main()
+{
+    int pid;
 
+    pid = getpid();
+    ft_printf("My pid: %d\n", pid);
+    return (0);
+}

@@ -1,5 +1,9 @@
+
+server
+client
 # Prerequisites
 *.d
+.vscode/
 
 # Object files
 *.o
