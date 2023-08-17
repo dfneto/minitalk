@@ -11,11 +11,28 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void    func(int signum)
+{
+    ft_printf("Signal received 1: %d\n", signum);
+}
+
+void    func2(int signum)
+{
+    ft_printf("Signal received 2: %d\n", signum);
+}
+
+
 int main()
 {
     int pid;
 
     pid = getpid();
     ft_printf("My pid: %d\n", pid);
+    while(1)
+    {
+        signal(SIGUSR1, func);
+        signal(SIGUSR2, func2);
+    }
     return (0);
 }

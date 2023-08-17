@@ -39,7 +39,10 @@ int main(int argc, char *argv[])
             print_error("INVALID PID");
             return (1);
         }
-        ft_printf("My pid is %d\n", pid);
+        if (ft_atoi(argv[2]) == 1)
+            kill(pid, SIGUSR1);
+        else 
+            kill(pid, SIGUSR2);
     }
     return (0);
 }

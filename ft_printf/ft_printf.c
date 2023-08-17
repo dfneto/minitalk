@@ -60,15 +60,15 @@ int	ft_printf(const char *s, ...)
 	return (string_size);
 }
 
-/*
-#include <stdio.h>
-int main()
-{
-	// Testing %s
-	int ret_printf;
-	ret_printf = printf("%x", -10);
-	printf("-->%i\n", ret_printf);
-	ret_printf = ft_printf("%x", -10);
-	printf("-->%i\n", ret_printf);
-}
-*/
+// #include <stdio.h>
+// int main()
+// {
+// 	// Testing %s
+// 	char *str = "hola kluwekuhr we;lr w;eiruew ri";
+// 	ft_printf("%s\n", str);
+// 	// int ret_printf;
+// 	// ret_printf = printf("%x", -10);
+// 	// printf("-->%i\n", ret_printf);
+// 	// ret_printf = ft_printf("%x", -10);
+// 	// printf("-->%i\n", ret_printf);
+// }
