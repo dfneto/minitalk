@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	get_len(int n)
+int	get_len_num(int n)
 {
 	int	len;
 
@@ -34,7 +34,7 @@ char	*ft_itoa(int n)
 	int		signal;
 
 	signal = 1;
-	len = get_len(n);
+	len = get_len_num(n);
 	num = (char *)malloc(len * sizeof(char) + 1);
 	if (!num)
 		return (0);

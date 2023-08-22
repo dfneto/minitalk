@@ -14,10 +14,10 @@
 
 ########################## VARIABLES DEFINITIONS ###############################
 HEADER = push_swap.h
-SRC = client.c server.c utils.c
-DIR_LIBFT = ./libft/
+SRC = src/client.c src/server.c src/utils.c
+DIR_LIBFT = ./deps/libft/
 LIBFT = $(DIR_LIBFT)/libft.a
-DIR_PRINTF = ./ft_printf/
+DIR_PRINTF = ./deps/ft_printf/
 PRINTF = $(DIR_PRINTF)/libftprintf.a
 
 CFLAGS += -Wextra -Werror -Wall
@@ -62,13 +62,13 @@ CLEAN_PRINTF:
 compile:
 # 	gcc client.c -g -o client
 	@echo 'compiling ...' 
-	@gcc $(LIBFT) $(PRINTF) -g utils.c server.c -o server 
-	@gcc $(LIBFT) $(PRINTF) -g utils.c client.c -o client
+	@gcc $(LIBFT) $(PRINTF) -g src/utils.c src/server.c -o server
+	@gcc $(LIBFT) $(PRINTF) -g src/utils.c src/client.c -o client
 
-run: compile
-	@echo running ...
-	@./server
-	@./client
+# run: compile
+# 	@echo running ...
+# 	@./server
+# 	@./client
 
 clean: CLEAN_LIBFT CLEAN_PRINTF
 	rm -f $(OBJ) *.out client server

@@ -39,5 +39,5 @@ int	print_string(va_list arg_ptr)
 	string = va_arg(arg_ptr, char *);
 	if (string == NULL)
 		return (write(1, "(null)", 6));
-	return (write(1, string, get_len(string)));
+	return (write(1, string, get_len(string))); //TODO: verificar se devo encerrar a cadeia de string com \0
 }

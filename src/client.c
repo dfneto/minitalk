@@ -29,7 +29,6 @@ int get_pid(char *pid)
 int main(int argc, char *argv[])
 {
     int     pid;
-    char    *msg;
 
     if (argc == 3)
     {

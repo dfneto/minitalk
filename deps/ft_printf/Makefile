@@ -13,7 +13,7 @@
 NAME = libftprintf.a
 HEADER = ft_printf.h
 SRC = ft_printf.c ft_utils_numbers.c ft_utils_text.c ft_putnbr.c ft_strlen.c ft_converter.c ft_putnbr_uint.c
-CFLAGS += -Wextra -Werror -Wall
+CFLAGS += -Wextra -Werror -Wall -g
 OBJ = $(SRC:.c=.o)
 CC = gcc
 

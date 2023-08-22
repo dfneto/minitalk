@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davifern <davifern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 22:25:49 by davifern          #+#    #+#             */
-/*   Updated: 2023/01/03 19:27:56 by davifern         ###   ########.fr       */
+/*   Created: 2023/08/17 18:23:06 by davifern          #+#    #+#             */
+/*   Updated: 2023/08/17 18:23:08 by davifern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	get_len(const char *s)
+#include "minitalk.h"
+int	print_error(char *msg)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+    ft_printf("%s\n", msg);
+    return (-1);
 }
