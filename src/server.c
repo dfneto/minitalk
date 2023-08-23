@@ -11,15 +11,30 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
+int counter_temp = 0;
 
 void    func(int signum)
-{
-    ft_printf("Signal received 1: %d\n", signum);
+{   
+    ft_printf("1");
+    counter_temp++;
+    // usleep(TIME_TO_SLEEP);
+    if (counter_temp == 8)
+    {
+        ft_printf("\n");
+        counter_temp = 0;
+    }
 }
 
 void    func2(int signum)
 {
-    ft_printf("Signal received 2: %d\n", signum);
+    ft_printf("0");
+    counter_temp++;
+    // usleep(TIME_TO_SLEEP);
+    if (counter_temp == 8)
+    {
+        ft_printf("\n");
+        counter_temp = 0;
+    }
 }
 
 
