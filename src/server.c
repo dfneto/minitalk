@@ -12,29 +12,37 @@
 
 #include "minitalk.h"
 int counter_temp = 0;
+char c = 0;
 
 void    func(int signum)
 {   
     ft_printf("1");
+    c = c | 1;
+    
     counter_temp++;
     // usleep(TIME_TO_SLEEP);
     if (counter_temp == 8)
     {
+        ft_printf("%c", c);
         ft_printf("\n");
         counter_temp = 0;
     }
+    c = c << 1;
 }
 
 void    func2(int signum)
 {
     ft_printf("0");
+    
     counter_temp++;
     // usleep(TIME_TO_SLEEP);
     if (counter_temp == 8)
     {
+        ft_printf("%c", c);
         ft_printf("\n");
         counter_temp = 0;
     }
+    c = c << 1;
 }
 
 
