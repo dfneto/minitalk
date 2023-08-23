@@ -61,6 +61,31 @@ void    send_message(char *msg, int pid)
     }
 }
 
+void    send_size_message(char c, int pid)
+{
+    int i;
+    int mask;
+
+    i = 0;
+    mask = 128;
+    while (i <= 7)
+    {
+       if (c & mask)
+        {
+            kill(pid, SIGUSR1);
+            printf("1");
+        }
+        else
+        {
+            kill(pid, SIGUSR2);
+            printf("0");
+        }
+        mask = mask >> 1;
+        i++;
+        usleep(TIME_TO_SLEEP);
+    }
+}
+
 int main(int argc, char *argv[])
 {
     int     pid;
@@ -73,7 +98,8 @@ int main(int argc, char *argv[])
             print_error("INVALID PID");
             return (1);
         }
-        send_message(argv[2], pid);
+        send_size_message(argc - 1, pid);
+        // send_message(argv[2], pid);
     }
     return (0);
 }

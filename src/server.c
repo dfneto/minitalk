@@ -13,35 +13,45 @@
 #include "minitalk.h"
 int counter_temp = 0;
 char c = 0;
+char msg[3];
+int i = 0;
 
 void    func(int signum)
 {   
-    ft_printf("1");
     c = c | 1;
-    
     counter_temp++;
-    // usleep(TIME_TO_SLEEP);
     if (counter_temp == 8)
     {
+        ft_printf("1");
         ft_printf("%c", c);
-        ft_printf("\n");
+        // msg[i] = c;
+        // i++;
         counter_temp = 0;
     }
-    c = c << 1;
+    // if (i == 3)
+    // {
+    //     ft_printf("%s\n", msg);
+    //     i = 0;
+    // }
+    c = c << 1; //TODO: refletir se seria mais didático mover mask ao invés do char. Neste caso teria que ser 128?
 }
 
 void    func2(int signum)
 {
-    ft_printf("0");
-    
     counter_temp++;
-    // usleep(TIME_TO_SLEEP);
     if (counter_temp == 8)
     {
+        ft_printf("1");
         ft_printf("%c", c);
-        ft_printf("\n");
+        // msg[i] = c;
+        // i++;
         counter_temp = 0;
     }
+    // if (i == 3)
+    // {
+    //     ft_printf("%s\n", msg);
+    //     i = 0;
+    // }
     c = c << 1;
 }
 
@@ -52,10 +62,11 @@ int main()
 
     pid = getpid();
     ft_printf("My pid: %d\n", pid);
+    signal(SIGUSR1, func);
+    signal(SIGUSR2, func2);
     while(1)
     {
-        signal(SIGUSR1, func);
-        signal(SIGUSR2, func2);
+        pause();   
     }
     return (0);
 }
