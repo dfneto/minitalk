@@ -22,9 +22,9 @@ void    func(int signum)
     counter_temp++;
     if (counter_temp == 8)
     {
-        // len = c;
+        len = c;
+        ft_printf("%d", len);
         ft_printf("\n");
-        ft_printf("%d", c);
         counter_temp = 0;
     }
     c = c << 1; //TODO: refletir se seria mais didático mover mask ao invés do char. Neste caso teria que ser 128?
@@ -35,9 +35,9 @@ void    func2(int signum)
     counter_temp++;
     if (counter_temp == 8)
     {
-        // len = c;
+        len = c;
+        ft_printf("%d", len);
         ft_printf("\n");
-        ft_printf("%d", c);
         counter_temp = 0;
     }
     c = c << 1;
