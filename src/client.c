@@ -65,7 +65,7 @@ void    send_size_message(int len, int pid)
     int i;
     int mask;
     
-    ft_printf("Size message in int : %d\n", len); //2
+    ft_printf("Size message in int : %d\n", len); 
     i = 0;
     mask = 128;
     while (i <= 7)
@@ -80,7 +80,7 @@ void    send_size_message(int len, int pid)
             ft_printf("0");
             kill(pid, SIGUSR2);
         }
-        mask = mask >> 1;
+        len = len << 1;
         i++;
         usleep(TIME_TO_SLEEP);
     }
