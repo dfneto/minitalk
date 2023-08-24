@@ -12,7 +12,7 @@
 
 #include "minitalk.h"
 int counter_temp = 0;
-char c = 0;
+int c = 0;
 int i = 0;
 int len;
 
@@ -20,7 +20,7 @@ void    func(int signum)
 {   
     c = c | 1;
     counter_temp++;
-    if (counter_temp == 8)
+    if (counter_temp == 32)
     {
         len = c;
         ft_printf("%d", len);
@@ -33,7 +33,7 @@ void    func(int signum)
 void    func2(int signum)
 {
     counter_temp++;
-    if (counter_temp == 8)
+    if (counter_temp == 32)
     {
         len = c;
         ft_printf("%d", len);

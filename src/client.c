@@ -63,12 +63,12 @@ void    send_message(char *msg, int pid)
 void    send_size_message(int len, int pid)
 {
     int i;
-    int mask;
+    long mask;
     
     ft_printf("Size message in int : %d\n", len); 
     i = 0;
-    mask = 128;
-    while (i <= 7)
+    mask = 2147483648;
+    while (i <= 31)
     {
         if (len & mask)
         {
