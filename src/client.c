@@ -30,21 +30,14 @@ void    send_char(char c, int pid)
 {
     int mask;
     int i;
-    ft_printf("Size message in int : %d\n", c);
     i = 0;
     mask = 128;
     while (i <= 7)
     {
         if (c & mask)
-        {
             kill(pid, SIGUSR1);
-            // printf("1");
-        }
         else
-        {
             kill(pid, SIGUSR2);
-            // printf("0");
-        }
         mask = mask >> 1; //TODO: mover C e nao mask
         i++;
         usleep(TIME_TO_SLEEP);
@@ -58,6 +51,7 @@ void    send_message(char *msg, int pid)
         send_char(*msg, pid);
         msg++;
     }
+    send_char(0, pid);
 }
 
 void    send_size_message(int len, int pid)
@@ -65,21 +59,15 @@ void    send_size_message(int len, int pid)
     int i;
     long mask;
     
-    ft_printf("Size message in int : %d\n", len); 
+    ft_printf("Sending msg of size %d\n", len);
     i = 0;
     mask = 2147483648;
     while (i <= 31)
     {
         if (len & mask)
-        {
-            ft_printf("1");
             kill(pid, SIGUSR1);
-        }
         else
-        {
-            ft_printf("0");
             kill(pid, SIGUSR2);
-        }
         len = len << 1;
         i++;
         usleep(TIME_TO_SLEEP);
@@ -99,7 +87,8 @@ int main(int argc, char *argv[])
             return (1);
         }
         send_size_message(ft_strlen(argv[2]), pid);
-        //send_message(argv[2], pid);
+        ft_printf("message sent %s\n", argv[2]);
+        send_message(argv[2], pid);
     }
     return (0);
 }

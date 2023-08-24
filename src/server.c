@@ -11,26 +11,51 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
-int counter_temp = 0;
-int c = 0;
-int i = 0;
-int len;
 
 void    func(int signum)
 {   
-    counter_temp++;
-    if (signum == 30) //1
-        c = c | 1;
-    
-    if (counter_temp == 32)
-    {
-        len = c;
-        ft_printf("%d", len);
-        ft_printf("\n");
-        counter_temp = 0;
-    }
+    static int  len = 0;
+    static char c = 0;
+    static char *msg = NULL;
+    static int  counter_temp = 0;
 
-    c = c << 1; //TODO: se eu mover mask ao invés do char. Neste caso teria que ser 128?
+    counter_temp++;
+    if (counter_temp <= 32)
+    {
+        if (signum == SIGUSR1) //1
+            len = len | 1;
+        if (counter_temp == 32)
+        {
+            ft_printf("msg size: %d\n", len);
+            msg = (char *)ft_calloc(len + 1, sizeof(char));
+            if (!msg)
+                return ;
+            len = 0;
+        }
+        len = len << 1;
+        // ft_printf("msg << 1 %d\n", len);
+    }
+    else
+    {
+        if (signum == SIGUSR1)
+            c = c | 1;
+        if (counter_temp == 40)
+        {
+            if (c)
+                msg[ft_strlen(msg)] = c;
+            else
+            {
+                msg[ft_strlen(msg)] = '\0';
+                ft_putendl_fd(msg, 1);
+                free(msg);
+                counter_temp = 0;
+                return ;
+            }
+            counter_temp = 32;
+            c = 0;
+        }
+        c = c << 1;//TODO: se eu mover mask ao invés do char. Neste caso teria que ser 128?
+    }
 }
 
 int main()
