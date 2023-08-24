@@ -13,8 +13,8 @@
 #include "minitalk.h"
 int counter_temp = 0;
 char c = 0;
-char msg[3];
 int i = 0;
+int len;
 
 void    func(int signum)
 {   
@@ -22,17 +22,11 @@ void    func(int signum)
     counter_temp++;
     if (counter_temp == 8)
     {
-        ft_printf("1");
-        ft_printf("%c", c);
-        // msg[i] = c;
-        // i++;
+        // len = c;
+        ft_printf("\n");
+        ft_printf("%d", c);
         counter_temp = 0;
     }
-    // if (i == 3)
-    // {
-    //     ft_printf("%s\n", msg);
-    //     i = 0;
-    // }
     c = c << 1; //TODO: refletir se seria mais didático mover mask ao invés do char. Neste caso teria que ser 128?
 }
 
@@ -41,17 +35,11 @@ void    func2(int signum)
     counter_temp++;
     if (counter_temp == 8)
     {
-        ft_printf("1");
-        ft_printf("%c", c);
-        // msg[i] = c;
-        // i++;
+        // len = c;
+        ft_printf("\n");
+        ft_printf("%d", c);
         counter_temp = 0;
     }
-    // if (i == 3)
-    // {
-    //     ft_printf("%s\n", msg);
-    //     i = 0;
-    // }
     c = c << 1;
 }
 
@@ -66,7 +54,7 @@ int main()
     signal(SIGUSR2, func2);
     while(1)
     {
-        pause();   
+        pause();   //TODO: colocar as declaracoes de signal aqui e testar o consumo de memoria sem o pause
     }
     return (0);
 }

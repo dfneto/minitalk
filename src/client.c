@@ -30,7 +30,7 @@ void    send_char(char c, int pid)
 {
     int mask;
     int i;
-
+    ft_printf("Size message in int : %d\n", c);
     i = 0;
     mask = 128;
     while (i <= 7)
@@ -38,12 +38,12 @@ void    send_char(char c, int pid)
         if (c & mask)
         {
             kill(pid, SIGUSR1);
-            printf("1");
+            // printf("1");
         }
         else
         {
             kill(pid, SIGUSR2);
-            printf("0");
+            // printf("0");
         }
         mask = mask >> 1;
         i++;
@@ -53,7 +53,6 @@ void    send_char(char c, int pid)
 
 void    send_message(char *msg, int pid)
 {
-    //get the len of msg and send to the server
     while(*msg)
     {
         send_char(*msg, pid);
@@ -61,24 +60,25 @@ void    send_message(char *msg, int pid)
     }
 }
 
-void    send_size_message(char c, int pid)
+void    send_size_message(int len, int pid)
 {
     int i;
     int mask;
-
+    
+    ft_printf("Size message in int : %d\n", len); //2
     i = 0;
     mask = 128;
     while (i <= 7)
     {
-       if (c & mask)
+        if (len & mask)
         {
+            ft_printf("1");
             kill(pid, SIGUSR1);
-            printf("1");
         }
         else
         {
+            ft_printf("0");
             kill(pid, SIGUSR2);
-            printf("0");
         }
         mask = mask >> 1;
         i++;
@@ -98,8 +98,8 @@ int main(int argc, char *argv[])
             print_error("INVALID PID");
             return (1);
         }
-        send_size_message(argc - 1, pid);
-        // send_message(argv[2], pid);
+        send_size_message(ft_strlen(argv[2]), pid);
+        //send_message(argv[2], pid);
     }
     return (0);
 }
