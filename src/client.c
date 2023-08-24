@@ -45,7 +45,7 @@ void    send_char(char c, int pid)
             kill(pid, SIGUSR2);
             // printf("0");
         }
-        mask = mask >> 1;
+        mask = mask >> 1; //TODO: mover C e nao mask
         i++;
         usleep(TIME_TO_SLEEP);
     }

@@ -16,6 +16,16 @@ int c = 0;
 int i = 0;
 int len;
 
+void    func_()
+{
+    ft_printf("Waka waka 1");
+}
+
+void    func2_()
+{
+    ft_printf("Waka waka 2");
+}
+
 void    func(int signum)
 {   
     c = c | 1;
@@ -26,8 +36,12 @@ void    func(int signum)
         ft_printf("%d", len);
         ft_printf("\n");
         counter_temp = 0;
+        signal(SIGUSR1, SIG_DFL);
+        signal(SIGUSR2, SIG_DFL);
+        signal(SIGUSR1, func_);
+        signal(SIGUSR2, func2_);
     }
-    c = c << 1; //TODO: refletir se seria mais didático mover mask ao invés do char. Neste caso teria que ser 128?
+    c = c << 1; //TODO: se eu mover mask ao invés do char. Neste caso teria que ser 128?
 }
 
 void    func2(int signum)
@@ -39,6 +53,10 @@ void    func2(int signum)
         ft_printf("%d", len);
         ft_printf("\n");
         counter_temp = 0;
+        signal(SIGUSR1, SIG_DFL);
+        signal(SIGUSR2, SIG_DFL);
+        signal(SIGUSR1, func_);
+        signal(SIGUSR2, func2_);
     }
     c = c << 1;
 }
