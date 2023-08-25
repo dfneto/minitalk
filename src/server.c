@@ -12,6 +12,67 @@
 
 #include "minitalk.h"
 
+char 	*create_empty_message(int len)
+{
+	char	*msg;
+
+	ft_printf(".......................creating malloc of %d\n", len);
+
+	msg = (char *)ft_calloc(len + 1, sizeof(char));
+	if (!msg)
+		return (0);
+	// int i = 0;
+	// while(i < 100000)
+	// {
+	// 	msg[i] = 'a';
+	// 	i++;
+	// }
+	// // msg[0] = 'd';
+	// // msg[1] = 'd';
+	// // msg[2] = 'd';
+	// // msg[3] = 'd';
+	// // msg[4] = 'd';
+	// ft_printf("message: %s\n", msg);
+	// ft_printf("waka\n");
+	return (msg);
+}
+
+void	add_char_to_the_string(char *msg, char c, int *counter_temp)
+{
+	int	position;
+
+	position = ft_strlen(msg);
+	
+	// ft_printf("first position: %d\n", position);
+	// ft_printf("adding the char: %c\n", c);
+	// ft_printf("message: %s\n", *msg);
+	ft_printf("--add_char_to_the_string---\n");
+	
+	if (c)
+		msg[position] = c;
+	else
+	{
+		msg[position] = '\0';
+		ft_putendl_fd(msg, 1);
+		free(msg);
+		*counter_temp = 0;
+		return ;
+	}
+}
+			// if (c)
+			// {
+			// 	// ft_printf("%p\n", msg);
+			// 	msg[ft_strlen(msg)] = c;
+			// }
+			// else
+			// {
+			// 	msg[ft_strlen(msg)] = '\0';
+			// 	ft_putendl_fd(msg, 1);
+			// 	free(msg);
+			// 	counter_temp = 0;
+			// 	return ;
+			// }
+
 void	func(int signum)
 {
 	static int	len = 0;
@@ -25,12 +86,7 @@ void	func(int signum)
 		if (signum == SIGUSR1)
 			len = len | 1;
 		if (counter_temp == 32)
-		{
-			msg = (char *)ft_calloc(len + 1, sizeof(char));
-			if (!msg)
-				return ;
-			len = 0;
-		}
+			msg = create_empty_message(len);
 		len = len << 1;
 	}
 	else
@@ -39,16 +95,20 @@ void	func(int signum)
 			c = c | 1;
 		if (counter_temp == 40)
 		{
-			if (c)
-				msg[ft_strlen(msg)] = c;
-			else
-			{
-				msg[ft_strlen(msg)] = '\0';
-				ft_putendl_fd(msg, 1);
-				free(msg);
-				counter_temp = 0;
-				return ;
-			}
+			add_char_to_the_string(msg, c, &counter_temp);
+			// if (c)
+			// {
+			// 	// ft_printf("%p\n", msg);
+			// 	msg[ft_strlen(msg)] = c;
+			// }
+			// else
+			// {
+			// 	msg[ft_strlen(msg)] = '\0';
+			// 	ft_putendl_fd(msg, 1);
+			// 	free(msg);
+			// 	counter_temp = 0;
+			// 	return ;
+			// }
 			counter_temp = 32;
 			c = 0;
 		}
