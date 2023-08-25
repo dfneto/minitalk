@@ -1,6 +1,7 @@
 
 server
 client
+*.swp
 # Prerequisites
 *.d
 .vscode/

@@ -70,6 +70,7 @@ compile:
 # 	@./server
 # 	@./client
 
+#todo: limpar os subdiretórios 
 clean: CLEAN_LIBFT CLEAN_PRINTF
 	rm -f $(OBJ) *.out client server
 	rm -rf *.dSYM
