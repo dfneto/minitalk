@@ -21,7 +21,7 @@ void 	create_empty_message(int len)
 		return ;
 }
 
-int	add_char_to_the_string(char c, int *counter_temp)
+int	add_char_to_the_msg(char c, int *counter_temp)
 {
 	int	position;
 
@@ -59,7 +59,7 @@ void	func(int signum)
 			c = c | 1;
 		if (counter_temp == 40)
 		{
-			if (add_char_to_the_string(c, &counter_temp) == 1)
+			if (add_char_to_the_msg(c, &counter_temp) == 1)
 				return ;
 			// int position = ft_strlen(msg);
 			// if (c)

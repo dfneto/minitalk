@@ -83,8 +83,8 @@ int	main(int argc, char *argv[])
 		pid = get_pid(argv[1]);
 		if (!pid)
 		{
-			print_error("INVALID PID");
-			return (1);
+			ft_putendl_fd("INVALID PID", 2);
+			return (-1);
 		}
 		send_size_message(ft_strlen(argv[2]), pid);
 		ft_printf("message sent %s\n", argv[2]);

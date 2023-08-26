@@ -5,7 +5,5 @@
 #include "../deps/libft/libft.h"
 
 # ifndef TIME_TO_SLEEP
-#  define TIME_TO_SLEEP 300
+#  define TIME_TO_SLEEP 50
 # endif
-
-int	print_error(char *msg);
