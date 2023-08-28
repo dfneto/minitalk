@@ -6,18 +6,18 @@
 /*   By: davifern <davifern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:17:56 by davifern          #+#    #+#             */
-/*   Updated: 2023/08/25 12:47:30 by davifern         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:15:42 by davifern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-char *msg = NULL;
+char	*g_msg = NULL;
 
-void 	create_empty_message(int len)
+void	create_empty_message(int len)
 {
-	msg = (char *)ft_calloc(len + 1, sizeof(char));
-	if (!msg)
+	g_msg = (char *)ft_calloc(len + 1, sizeof(char));
+	if (!g_msg)
 		return ;
 }
 
@@ -25,18 +25,18 @@ int	add_char_to_the_msg(char c, int *counter_temp)
 {
 	int	position;
 
-	position = ft_strlen(msg);
+	position = ft_strlen(g_msg);
 	if (c)
-		msg[position] = c;
+		g_msg[position] = c;
 	else
 	{
-		msg[position] = '\0';
-		ft_putendl_fd(msg, 1);
-		free(msg);
+		g_msg[position] = '\0';
+		ft_putendl_fd(g_msg, 1);
+		free(g_msg);
 		*counter_temp = 0;
-		return 1;
+		return (1);
 	}
-	return 0;
+	return (0);
 }
 
 void	func(int signum)

@@ -41,7 +41,7 @@ void	send_char(char c, int pid)
 			kill(pid, SIGUSR2);
 		mask = mask >> 1;
 		i++;
-		usleep(TIME_TO_SLEEP);
+		usleep(300);
 	}
 }
 
@@ -70,7 +70,7 @@ void	send_size_message(int len, int pid)
 			kill(pid, SIGUSR2);
 		len = len << 1;
 		i++;
-		usleep(TIME_TO_SLEEP);
+		usleep(300);
 	}
 }
 
