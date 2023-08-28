@@ -61,17 +61,6 @@ void	func(int signum)
 		{
 			if (add_char_to_the_msg(c, &counter_temp) == 1)
 				return ;
-			// int position = ft_strlen(msg);
-			// if (c)
-			// 	msg[position] = c;
-			// else
-			// {
-			// 	msg[position] = '\0';
-			// 	ft_putendl_fd(msg, 1);
-			// 	free(msg);
-			// 	counter_temp = 0;
-			// 	return ;
-			// }
 			counter_temp = 32;
 			c = 0;
 		}
