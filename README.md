@@ -1,15 +1,35 @@
 # minitalk
 
 TODO<br/>
-[] norminette in libft<br/>
-[] norminette in printf<br/>
-[] melhorar o makefile que não estou usando as flags, cc etc.<br/>
-[] entender melhor como estou enviando 1 byte e conseguindo imprimir um caracter unicode que acredito estar fora do range de 1 byte (256 possibilidades) - contar a quantidade de bits que estou recebendo no server ao enviar um emoji, um ñ etc.<br/>
-[] o que eh o formato unicode<br/>
-[] entender o understand_size.c e o "como funciona??"<br/>
-[] Testar colocar as declaracoes de signal dentro do while e verificar o consumo de memoria sem o pause<br/>
-[] diminuir a quantidade de variáveis estáticas e no geral<br/>
-
+[ ] norminette in libft<br/>
+[ ] norminette in printf<br/>
+[ ] melhorar o makefile que não estou usando as flags, cc etc.<br/>
+[ ] entender melhor como estou enviando 1 byte e conseguindo imprimir um caracter unicode que acredito estar fora do range de 1 byte (256 possibilidades) - contar a quantidade de bits que estou recebendo no server ao enviar um emoji, um ñ etc.<br/>
+[ ] o que eh o formato unicode<br/>
+[ ] entender o understand_size.c e o "como funciona??"<br/>
+[ ] Testar colocar as declaracoes de signal dentro do while e verificar o consumo de memoria sem o pause<br/>
+[ ] diminuir a quantidade de variáveis estáticas e no geral<br/>
+[ ] Entender por que usar a variável global resolvia o problema e com a estática não no código abaixo: <br />
+```
+if (counter_temp == 40)
+		{
+			if (add_char_to_the_msg(c, &counter_temp) == 1)
+				return ;
+			// int position = ft_strlen(msg);
+			// if (c)
+			// 	msg[position] = c;
+			// else
+			// {
+			// 	msg[position] = '\0';
+			// 	ft_putendl_fd(msg, 1);
+			// 	free(msg);
+			// 	counter_temp = 0;
+			// 	return ;
+			// }
+			counter_temp = 32;
+			c = 0;
+		}
+```
 
 If moving the msg variable from a local context (within a function) to a global context (outside any function) resolves the segmentation fault, there could be several reasons for it:
 

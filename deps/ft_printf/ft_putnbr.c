@@ -6,7 +6,7 @@
 /*   By: davifern <davifern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:41:09 by davifern          #+#    #+#             */
-/*   Updated: 2023/01/30 22:43:02 by davifern         ###   ########.fr       */
+/*   Updated: 2023/08/28 11:09:47 by davifern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	write_num_dealing_with_slash_zero(char *num, int length)
 }
 
 int	deal_with_negative_number(int *nb, int length)
-{	
+{
 	if ((*nb) < 0)
 	{
 		(*nb) = -(*nb);

@@ -6,7 +6,7 @@
 /*   By: davifern <davifern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 19:40:39 by davifern          #+#    #+#             */
-/*   Updated: 2022/06/16 18:41:46 by davifern         ###   ########.fr       */
+/*   Updated: 2023/08/28 10:17:42 by davifern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct s_list
 {
-	void		*content;
+	void			*content;
 	struct s_list	*next;
 }	t_list;
 

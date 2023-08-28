@@ -6,7 +6,7 @@
 /*   By: davifern <davifern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:27:46 by davifern          #+#    #+#             */
-/*   Updated: 2023/01/30 19:28:37 by davifern         ###   ########.fr       */
+/*   Updated: 2023/08/28 11:10:29 by davifern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	print_char(va_list arg_ptr, int *i)
 	return (1);
 }
 
+//TODO: verificar se devo encerrar a cadeia de string com \0
 int	print_string(va_list arg_ptr)
 {
 	char	*string;
@@ -39,5 +40,5 @@ int	print_string(va_list arg_ptr)
 	string = va_arg(arg_ptr, char *);
 	if (string == NULL)
 		return (write(1, "(null)", 6));
-	return (write(1, string, get_len(string))); //TODO: verificar se devo encerrar a cadeia de string com \0
+	return (write(1, string, get_len(string)));
 }

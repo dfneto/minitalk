@@ -6,7 +6,7 @@
 /*   By: davifern <davifern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 18:39:28 by davifern          #+#    #+#             */
-/*   Updated: 2022/06/18 10:59:45 by davifern         ###   ########.fr       */
+/*   Updated: 2023/08/28 10:17:20 by davifern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
@@ -19,10 +19,13 @@
 #include "libft.h"
 
 /*
-* ft_get_size goal is to define the real size of the substring dealing with values of len that would generate errors.
+* ft_get_size goal is to define the real size of the substring
+* dealing with values of len that would generate errors.
 * 1st case: "error"
-* 2nd case: if the len of substring is smaler than the current string so use len
-* 3rd case: if len is bigger than s_length or if start + len is bigger than s_length, just copy from start to the end.
+* 2nd case: if the len of substring is smaler than the current string 
+* so use len
+* 3rd case: if len is bigger than s_length or if start + len is bigger
+* than s_length, just copy from start to the end.
 */
 size_t	ft_get_size(char const *s, unsigned int start, size_t len)
 {
@@ -31,8 +34,6 @@ size_t	ft_get_size(char const *s, unsigned int start, size_t len)
 	s_length = ft_strlen(s);
 	if (start >= s_length)
 		return (0);
-	// if (start + len - 1 == s_length) //in my original code I had this, but it is useless
-	// 	return (len - 1);
 	if (s_length >= len)
 		return (len);
 	else
@@ -50,7 +51,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (substr == 0)
 		return (0);
 	if (start >= ft_strlen(s))
-	{	
+	{
 		substr[0] = '\0';
 		return (substr);
 	}
@@ -63,7 +64,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr[i] = '\0';
 	return (substr);
 }
-
 // #include <stdio.h>
 // int main()
 // {

@@ -62,8 +62,8 @@ CLEAN_PRINTF:
 compile:
 # 	gcc client.c -g -o client
 	@echo 'compiling ...' 
-	@gcc $(LIBFT) $(PRINTF) -g src/utils.c src/server.c -o server
-	@gcc $(LIBFT) $(PRINTF) -g src/utils.c src/client.c -o client
+	@gcc $(LIBFT) $(PRINTF) -g src/server.c -o server
+	@gcc $(LIBFT) $(PRINTF) -g src/client.c -o client
 
 # run: compile
 # 	@echo running ...

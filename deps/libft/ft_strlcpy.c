@@ -6,7 +6,7 @@
 /*   By: davifern <davifern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 18:44:05 by davifern          #+#    #+#             */
-/*   Updated: 2022/05/31 12:11:05 by davifern         ###   ########.fr       */
+/*   Updated: 2023/08/28 10:12:10 by davifern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 // 	const char *s = "hola david";
 // 	char dest[4];
 // 	ft_strlcpy(dest, s, 4);
-	
+//	
 // 	char dest2[4];
 // 	strlcpy(dest2, s, 4);
-	
+//	
 // 	printf("%s\n", dest2);
 // 	printf("%s\n", dest);
 

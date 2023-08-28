@@ -6,7 +6,7 @@
 /*   By: davifern <davifern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:08:50 by davifern          #+#    #+#             */
-/*   Updated: 2022/06/18 11:46:30 by davifern         ###   ########.fr       */
+/*   Updated: 2023/08/28 10:12:42 by davifern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,8 @@ int main()
 	// char s1[] = " lorem \n ipsum \t dolor \n sit \t amet ";
 	// char *ret = ft_strtrim(s1, " ");
 
-	// char *s1 = "   \t  \n\n \t\t  \n\n\nHello \t Please\n Trim me !\n   \n \n \t\t\n  ";
+	// char *s1 = "   \t  \n\n \t\t  \n\n\nHello \t Please\n Trim me !\n 
+	  \n \n \t\t\n  ";
 	// char *s1 = "Hello \t  Please\n Trim me !";
 	// char *ret = ft_strtrim(s1, " \n\t");
 

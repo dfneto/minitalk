@@ -6,7 +6,7 @@
 /*   By: davifern <davifern@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 11:06:57 by davifern          #+#    #+#             */
-/*   Updated: 2022/06/18 10:50:04 by davifern         ###   ########.fr       */
+/*   Updated: 2023/08/28 10:13:08 by davifern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ char	*ft_strchr(char *s, int c)
 	else
 		return (0);
 }
-
-
 // #include <stdio.h>
 // int main()
 // {
