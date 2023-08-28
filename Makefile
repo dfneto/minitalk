@@ -13,38 +13,32 @@
 
 
 ########################## VARIABLES DEFINITIONS ###############################
+
+CLIENT = client
+SERVER = server
+
 HEADER = push_swap.h
-SRC = src/client.c src/server.c src/utils.c
+SRC_CLIENT = src/client.c 
+SRC_SERVER = src/server.c
 DIR_LIBFT = ./deps/libft/
 LIBFT = $(DIR_LIBFT)/libft.a
 DIR_PRINTF = ./deps/ft_printf/
 PRINTF = $(DIR_PRINTF)/libftprintf.a
 
-CFLAGS += -Wextra -Werror -Wall
+CFLAGS += -Wextra -Werror -Wall -g #/includes...?
 # This line itself doesn't actually generate the object files; it just sets up the 
 # names that will be used when the object files are generated
 # OBJ = $(SRC:.c=.o)
 CC = gcc
+MAKE = make --no-print-directory
 
 ################################# RULES ####################################### 
-all: MAKE_LIBFT MAKE_PRINTF $(NAME)
-
-# -C <path> option. This changes the current path to the path '<path>'
-MAKE_LIBFT:
-	@echo compiling libft ...
-	@make -C $(DIR_LIBFT)
-
-MAKE_PRINTF:
-	@echo compiling ft_printf ...
-	@make -C $(DIR_PRINTF)
-
-CLEAN_LIBFT:
-	@echo cleaning libft ...
-	@make clean -C $(DIR_LIBFT)
-
-CLEAN_PRINTF:
-	@echo cleaning printf ...
-	@make clean -C $(DIR_PRINTF)
+# -C <path> option. This changes the current path to the path '<path>', -s silent
+all: $(CLIENT) $(SERVER) 
+	@$(MAKE) -sC $(DIR_LIBFT)
+	@$(MAKE) -sC $(DIR_PRINTF)
+	@$(MAKE) $(CLIENT)
+	@$(MAKE) $(SERVER)
 
 # This pattern rule tells make how to build a .o file from a corresponding .c file 
 # (and ensures that the object files are recompiled if the header file, indicated 
@@ -59,22 +53,19 @@ CLEAN_PRINTF:
 # %.o : %.c $(HEADER)
 #	$(CC) $(CFLAGS) -c $< -o $@
 
-compile:
-# 	gcc client.c -g -o client
-	@echo 'compiling ...' 
-	@gcc $(LIBFT) $(PRINTF) -g src/server.c -o server
-	@gcc $(LIBFT) $(PRINTF) -g src/client.c -o client
+$(CLIENT): $(SRC_CLIENT)
+	$(CC) $(CFLAGS) $(SRC_CLIENT) $(LIBFT) $(PRINTF) -o client
 
-# run: compile
-# 	@echo running ...
-# 	@./server
-# 	@./client
+$(SERVER): $(SRC_SERVER)
+	$(CC) $(CFLAGS) $(SRC_SERVER) $(LIBFT) $(PRINTF) -o server
 
-#todo: limpar os subdiretórios 
-clean: CLEAN_LIBFT CLEAN_PRINTF
-	rm -f $(OBJ) *.out client server
+clean:
+	rm -f *.out client server
+	rm -f *.out src/*.o
 	rm -rf *.dSYM
-	
+	@$(MAKE) clean -C $(DIR_LIBFT)
+	@$(MAKE) clean -C $(DIR_PRINTF)
+
 fclean: clean
 	rm -f $(NAME)
 	rm -f *.gch

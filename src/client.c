@@ -87,7 +87,7 @@ int	main(int argc, char *argv[])
 			return (-1);
 		}
 		send_size_message(ft_strlen(argv[2]), pid);
-		ft_printf("message sent %s\n", argv[2]);
+		ft_printf("Message sent %s\n", argv[2]);
 		send_message(argv[2], pid);
 	}
 	return (0);
